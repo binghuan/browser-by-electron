@@ -18,4 +18,4 @@ npm start;
 ![](./resources/illustration.png)
 
 ## Demo 
-![](./resources/demo.gif)
+[![](./resources/demo.gif)](https://youtu.be/q9jRIe3dAIk)
