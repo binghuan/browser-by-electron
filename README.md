@@ -18,6 +18,7 @@ yarn start; <br/>
 yarn make
 </code>    
 <br/>
+
 ![](./resources/yarn_make.gif)
 
 ## Download for macOS
