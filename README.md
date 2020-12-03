@@ -21,8 +21,9 @@ yarn make
 
 ![](./resources/yarn_make.gif)
 
-## Download for macOS
-[![](./resources/down-arrow.svg)](./out/make/zip/darwin/x64/browser-by-electron-darwin-x64-0.0.1.zip)
+## Download the application
+[![](./resources/apple.png)](./out/make/zip/darwin/x64/browser-by-electron-darwin-x64-0.0.1.zip)
+[![](./resources/windows.png)](./out/make/squirrel.windows/x64/browser-by-electron-0.0.1\ Setup.exe)
 
 ## Illustration
 ![](./resources/illustration.png)
