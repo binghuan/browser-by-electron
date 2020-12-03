@@ -22,12 +22,6 @@
       "packagerConfig": {},
       "makers": [
         {
-          "name": "@electron-forge/maker-wix",
-          "config": {
-            "name": "browser_by_electron"
-          }
-        },
-        {
           "name": "@electron-forge/maker-squirrel",
           "config": {
             "name": "browser_by_electron"
