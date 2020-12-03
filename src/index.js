@@ -1,3 +1,5 @@
+console.log(">> ");
+
 // Event handlers for loading events.
 // Use these to handle loading screens, transitions, etc
 onload = () => {
