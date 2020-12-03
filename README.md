@@ -20,6 +20,9 @@ yarn make
 <br/>
 ![](./resources/yarn_make.gif)
 
+## Download for macOS
+[![](./resources/down-arrow.svg)](./out/make/zip/darwin/x64/browser-by-electron-darwin-x64-0.0.1.zip)
+
 ## Illustration
 ![](./resources/illustration.png)
 
