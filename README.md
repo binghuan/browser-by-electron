@@ -7,14 +7,18 @@ Reference:
 <https://www.electronforge.io/>
 
 ## How to Run the application
-<code>
-cd browser-by-electron; yarn install; yarn start;     
+<code>#Command<br/>
+cd browser-by-electron; <br/>
+yarn install; <br/>
+yarn start; <br/>
 </code>  
 
 ## Building Distributables
 <code>
 yarn make
-</code>
+</code>    
+<br/>
+![](./resources/yarn_make.gif)
 
 ## Illustration
 ![](./resources/illustration.png)
