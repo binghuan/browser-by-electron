@@ -33,6 +33,19 @@ app.on('ready', () => {
   createWindow()
 });
 
+app.on('activate', () => {
+  console.log("EVENT -> app.on [activate]");
+});
+
+app.on('did-become-active', () => {
+  console.log("EVENT -> app.on [did-become-active]");
+});
+
+
+app.on('will-finish-launching', () => {
+  console.log("EVENT -> app.on [will-finish-launching]");
+});
+
 app.on('before-quit', () => {
   console.log("EVENT -> app.on [before-quit]");
 });
