@@ -23,7 +23,7 @@ yarn make
 
 ## Download the application
 [![](./resources/apple.png)](./out/make/zip/darwin/x64/browser-by-electron-darwin-x64-0.0.1.zip)
-[![](./resources/windows.png)](./out/make/squirrel.windows/x64/browser-by-electron-0.0.1\ Setup.exe)
+[![](./resources/windows.png)](./out/make/squirrel.windows/x64/browser-by-electron-0.0.1_Setup.exe)
 
 ## Illustration
 ![](./resources/illustration.png)
