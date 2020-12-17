@@ -7,11 +7,11 @@ Reference:
 <https://www.electronforge.io/>
 
 ## How to Run the application
-<code>#Command<br/>
-cd browser-by-electron; <br/>
-yarn install; <br/>
-yarn start; <br/>
-</code>  
+```bash
+cd browser-by-electron;
+yarn install;
+yarn start;
+```
 
 ## Building Distributables
 <code>
