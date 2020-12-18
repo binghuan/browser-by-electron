@@ -1,4 +1,4 @@
-const { app, BrowserWindow } = require('electron');
+const { app, shell, BrowserWindow } = require('electron');
 const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -42,6 +42,22 @@ const createWindow = () => {
 app.on('ready', () => {
   console.log("// ------------------ EVENT -> app.on [ready]");
   createWindow()
+});
+
+
+// Listen for web contents being created
+app.on('web-contents-created', (e, contents) => {
+  console.log("// ------------------ EVENT -> app.on [web-contents-created]");
+
+  // Check for a webview
+  if (contents.getType() == 'webview') {
+
+    // Listen for any new window events
+    contents.on('new-window', (e, url) => {
+      e.preventDefault()
+      shell.openExternal(url)
+    })
+  }
 });
 
 app.on('activate', () => {
