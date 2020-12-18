@@ -3,7 +3,7 @@ const path = require('path');
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
 if (require('electron-squirrel-startup')) { // eslint-disable-line global-require
-  console.log("-> app.on [electron-squirrel-startup]");
+  console.log(" app.on [electron-squirrel-startup]");
   app.quit();
 }
 
@@ -21,15 +21,15 @@ const createWindow = () => {
   // and load the index.html of the app.
   mainWindow.loadFile(path.join(__dirname, 'index.html'));
   mainWindow.on('close', (e) => {
-    console.log("// ------------------ EVENT -> window.on [close] ------------");
+    console.log("// --------------------- EVENT  window.on [close] ------------");
   })
 
   mainWindow.on('closed', (e) => {
-    console.log("// ------------------ EVENT -> window.on [closed] ------------");
+    console.log("// --------------------- EVENT  window.on [closed] ------------");
   })
 
   mainWindow.on('ready-to-show', (e) => {
-    console.log("// ------------------ EVENT -> window.on [ready-to-show] -----");
+    console.log("// --------------------- EVENT  window.on [ready-to-show] -----");
   })
 
   // Open the DevTools.
@@ -40,63 +40,108 @@ const createWindow = () => {
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.on('ready', () => {
-  console.log("// ------------------ EVENT -> app.on [ready]");
+  console.log("// ---------------- EVENT  app.on [ready]");
   createWindow()
 });
 
 
 // Listen for web contents being created
 app.on('web-contents-created', (e, contents) => {
-  console.log("// ------------------ EVENT -> app.on [web-contents-created]");
+  console.log("// ---------------- EVENT  app.on [web-contents-created]");
 
   // Check for a webview
   if (contents.getType() == 'webview') {
 
     // Listen for any new window events
     contents.on('new-window', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [new-window]", url);
       e.preventDefault()
-      shell.openExternal(url)
+      if (url != "about:blank") {
+        shell.openExternal(url)
+      }
+    })
+    contents.on('did-finish-load', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-finish-load]");
+    })
+    contents.on('did-frame-finish-load', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-frame-finish-load]");
+    })
+    contents.on('did-start-loading', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-start-loading]");
+    })
+    contents.on('dom-ready', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [dom-ready]");
+    })
+    contents.on('page-title-updated', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [page-title-updated]");
+    })
+    contents.on('page-favicon-updated', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [page-favicon-updated]");
+    })
+    contents.on('will-navigate', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [will-navigate]");
+    })
+    contents.on('did-navigate', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-navigate]");
+    })
+    contents.on('did-start-navigation', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-start-navigation]");
+    })
+    contents.on('will-redirect', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [will-redirect]");
+    })
+    contents.on('did-redirect-navigation', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-redirect-navigation]");
+    })
+    contents.on('did-frame-navigate', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-frame-navigate]");
+    })
+    contents.on('did-navigate-in-page', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [did-navigate-in-page]");
+    })
+    contents.on('will-prevent-unload', (e, url) => {
+      console.log("// -------------------------- EVENT  webContents.on [will-prevent-unload]");
     })
   }
 });
 
 app.on('activate', () => {
-  console.log("// ------------------ EVENT -> app.on [activate]");
+  console.log("// ---------------- EVENT  app.on [activate]");
 });
 
 app.on('did-become-active', () => {
-  console.log("// ------------------ EVENT -> app.on [did-become-active]");
+  console.log("// ---------------- EVENT  app.on [did-become-active]");
 });
 
 
 app.on('will-finish-launching', () => {
-  console.log("// ------------------ EVENT -> app.on [will-finish-launching]");
+  console.log("// ---------------- EVENT  app.on [will-finish-launching]");
 });
 
 app.on('before-quit', () => {
-  console.log("// ------------------ EVENT -> app.on [before-quit]");
+  console.log("// ---------------- EVENT  app.on [before-quit]");
 });
 
 app.on('will-quit', () => {
-  console.log("// ------------------ EVENT -> app.on [will-quit]");
+  console.log("// ---------------- EVENT  app.on [will-quit]");
 });
 
 app.on('quit', () => {
-  console.log("// ------------------ EVENT -> app.on [quit]");
+  console.log("// ---------------- EVENT  app.on [quit]");
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
 // for applications and their menu bar to stay active until the user quits
 // explicitly with Cmd + Q.
 app.on('window-all-closed', () => {
-  console.log("// ------------------ EVENT -> app.on [window-all-closed]");
+  console.log("// ---------------- EVENT  app.on [window-all-closed]");
   if (process.platform !== 'darwin') {
     app.quit();
   }
 });
 
 app.on('activate', () => {
-  console.log("// ------------------ EVENT -> app.on [activate]");
+  console.log("// ---------------- EVENT  app.on [activate]");
   // On OS X it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (BrowserWindow.getAllWindows().length === 0) {
