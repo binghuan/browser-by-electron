@@ -1,8 +1,35 @@
+const { ipcRenderer } = require('electron')
 console.log(">> ");
+
+let btnThemeSystem = null;
+let btnThemeDark = null;
+let btnThemeLight = null;
 
 // Event handlers for loading events.
 // Use these to handle loading screens, transitions, etc
 onload = () => {
+
+    btnThemeSystem = document.getElementById('btn_theme_system');
+    btnThemeSystem.addEventListener('click', async () => {
+        console.log(">> oncick btn_theme_system");
+        const isDarkMode = await ipcRenderer.invoke('dark-mode:system')
+        checkMedia("system");
+    })
+
+    btnThemeLight = document.getElementById('btn_theme_light');
+    btnThemeLight.addEventListener('click', async () => {
+        console.log(">> oncick btn_theme_light");
+        const isDarkMode = await ipcRenderer.invoke('dark-mode:light')
+        checkMedia();
+    })
+
+    btnThemeDark = document.getElementById('btn_theme_dark');
+    btnThemeDark.addEventListener('click', async () => {
+        console.log(">> oncick btn_theme_dark");
+        const isDarkMode = await ipcRenderer.invoke('dark-mode:dark')
+        checkMedia();
+    })
+
     const webview = document.getElementById('webview')
     const indicator = document.getElementById('indicator')
 
@@ -44,4 +71,40 @@ onload = () => {
 
     webview.addEventListener('did-start-loading', loadstart)
     webview.addEventListener('did-stop-loading', loadstop)
+
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? "dark" : "light";
+        console.log("newColorScheme: ", newColorScheme, e);
+    });
+    window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', e => {
+        const newColorScheme = e.matches ? "dark" : "light";
+        console.log("newColorScheme: ", newColorScheme, e);
+    });
+
+    checkMedia();
+}
+
+function checkMedia(mode) {
+
+    if (mode == "system") {
+        console.log("system mode");
+        btnThemeSystem.classList.add("active");
+        btnThemeDark.classList.remove("active");
+        btnThemeLight.classList.remove("active");
+        return;
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        console.log("dark mode");
+        btnThemeDark.classList.add("active");
+        btnThemeLight.classList.remove("active");
+        btnThemeSystem.classList.remove("active");
+    }
+
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        console.log("light mode");
+        btnThemeLight.classList.add("active");
+        btnThemeDark.classList.remove("active");
+        btnThemeSystem.classList.remove("active");
+    }
 }
