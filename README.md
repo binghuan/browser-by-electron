@@ -30,3 +30,6 @@ yarn make
 
 ## Demo 
 [![](./resources/demo.gif)](https://youtu.be/q9jRIe3dAIk)
+
+## Demo Dark Mode
+![](./resources/demo_dark_mode.gif)
