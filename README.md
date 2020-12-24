@@ -2,10 +2,10 @@
 
 This is a mini browser built by Electron.  
 Reference:   
-<https://www.electronjs.org/docs/tutorial/quick-start#create-a-basic-application>
-<https://www.electronjs.org/docs/api/webview-tag>
+<https://www.electronjs.org/docs/tutorial/quick-start#create-a-basic-application>  
+<https://www.electronjs.org/docs/api/webview-tag>  
 <https://www.electronforge.io/>  
-<https://www.electronjs.org/docs/tutorial/dark-mode>
+<https://www.electronjs.org/docs/tutorial/dark-mode>  
 
 ## How to Run the application
 ```bash
