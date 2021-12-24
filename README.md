@@ -9,7 +9,6 @@ This is a mini browser built by Electron.
   - [Table of Contents](#table-of-contents)
   - [How to Run the application](#how-to-run-the-application)
   - [Building Distributables](#building-distributables)
-  - [Download the application](#download-the-application)
   - [Illustration](#illustration)
   - [Demo](#demo)
   - [Demo Dark Mode](#demo-dark-mode)
@@ -31,10 +30,6 @@ yarn make
 <br/>
 
 ![](./resources/yarn_make.gif)
-
-## Download the application
-[![](./resources/apple.png)](./out/make/zip/darwin/x64/browser-by-electron-darwin-x64-0.0.1.zip)
-[![](./resources/windows.png)](./out/make/squirrel.windows/x64/browser-by-electron-0.0.1_Setup.exe)
 
 ## Illustration
 ![](./resources/illustration.png)
