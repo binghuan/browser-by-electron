@@ -2,9 +2,6 @@ browser-by-electron
 ====================
 This is a mini browser built by Electron. It features a simple web browser interface with navigation controls, URL input, and theme switching capabilities (light/dark/system modes).
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Electron](https://img.shields.io/badge/Electron-11.0.3-blue.svg)](https://electronjs.org)  
-
 ## Table of Contents
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
